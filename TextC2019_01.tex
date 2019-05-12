@@ -1,0 +1,283 @@
+%------------------------------------- ページサイズなどの書式設定
+%¥documentclass[a4j,twocolumn, dvipdfmx]{jsarticle} % 二段組の構成にする
+%¥documentclass[a4j,notitlepage]{jsarticle} % タイトルだけのページを作らない
+\documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
+%------------------------------------- パッケージ読み込み
+
+\usepackage[ipaex]{pxchfon}
+\usepackage{itembkbx}
+\usepackage{listings}
+\usepackage{jlisting}
+\lstset{% 
+showstringspaces=false,%空白文字削除
+language={C},% %言語選択
+basicstyle={\upshape},% %標準の書体
+identifierstyle={\small},% %キーワードでない文字の書体
+ndkeywordstyle={\small},% %キーワードその２の書体
+stringstyle={\small\ttfamily},% %””で囲まれた文字などの書体
+frame={tb},% %枠、デザインなど
+breaklines=true,% %行が長くなった時の自動改行
+columns=[l]{fullflexible},% %書体による列幅の違いを調整するか
+numbers=left,% %行番号を表示するか
+xrightmargin=0zw,% %余白の調整？
+xleftmargin=0zw,% %余白の調整
+numberstyle={\scriptsize},%行番号の書体
+stepnumber=1,% %行番号をいくつ飛ばしで表示するか
+numbersep=1zw,% %行番号と本文の間隔
+morecomment=[l]{//}% 
+} 
+\title{C言語講座第一回}
+\author{那由多}
+\date{2019年5月9日}
+\begin{document}
+\maketitle
+\part{はじめに}
+{\Large プログラミングはとっても楽しいです．\\}
+しかし挫折する人は簡単に挫折します．\\
+挫折しないためにわからなかったらすぐ聞きましょう．\\
+(多分)周りに先輩が巡回してますし，わからなかったら私に聞いても良いです．\\
+講座内で聞いても良いですし，私にLINEでもtwitterでDMでもしてきてください．\\
+最初は苦戦すると思いますが頑張っていきましょう．\\
+ただ私も講座を持つのは初めてなのでわかりにくいかもしれませんがそこはご容赦ください．\\
+\part{第一回}
+\section{準備}
+学校のPCを起動してLinuxを起動してください．\\
+そして端末を起動してください．\\
+
+\section{そもそもubuntuとは}
+ubuntuとはLinuxというOSの一種です．\\
+Linuxはリーナストーバルズさんが作ったOSで無料です．\\
+サーバーなどを触るときはほとんどLinuxですし開発もLinuxで行えると楽なので今回はLinuxを使ってC言語を勉強していきます．\\
+\section{ubuntuの基本的な使い方・コマンドの打ち方}
+まず端末というソフトを起動します．\\
+ここにコマンドを打って操作していきますが，
+\begin{lstlisting}
+$
+\end{lstlisting}
+
+この\$ から始まる文字はこの端末に打つコマンドと覚えておきましょう
+
+\subsection{位置の確認と移動}
+端末での操作は基本的に自分の位置を把握してそこで操作することが大切です．\\
+よってまず自分の位置を確認しましょう\\
+\begin{lstlisting}
+$ pwd
+\end{lstlisting}
+
+このコマンドで自分の位置を把握することができます．\\
+それでは自分がいる位置の中にあるディレクトリ(フォルダ)を確認してみましょう\\
+\begin{lstlisting}
+$ ls
+\end{lstlisting}
+
+このコマンドで自分のいる位置の中身を把握することができます．\\
+それでは次にディレクトリの移動をしてみましょう
+\begin{lstlisting}
+$ cd Documents
+\end{lstlisting}
+
+これによってディレクトリ間を移動することができます．\\
+今だとDocumentsディレクトリに移動しましたが他のディレクトリに移動したい場合は
+\begin{lstlisting}
+$ cd "好きなディレクトリ"
+\end{lstlisting}
+
+""これに囲まれた部分は任意のものに変更してください
+また一つ前のディレクトリに戻りたい場合は
+\begin{lstlisting}
+$ cd ..
+\end{lstlisting}
+
+これで一つ前のディレクトリに移動することができます．
+
+\subsection{エディタとコンパイル}
+\subsubsection{エディタの起動}
+プログラムを書くにはエディタというものを使います．\\
+エディタの起動には
+
+\begin{lstlisting}
+$ gedit "ファイル名"
+\end{lstlisting}
+
+これでエディタを起動することができますのでプログラムを書きましょう.\\
+
+\subsubsection{コンパイル}
+コンパイルとはプログラムを機械語に変換する作業のことで，コンパイラというものが行います．\\
+コンパイラのコマンドは
+
+\begin{lstlisting}
+$ gcc "ファイル名"
+\end{lstlisting}
+
+これによって機械語のファイルを作ることができます．\\
+機械語のファイルを実行するには
+\begin{lstlisting}
+$ ./a.out
+\end{lstlisting}
+
+これでプログラムを実行することができます．
+
+ここで挙げたコマンドは本当に必要最低限のコマンドです．\\
+そのほかにもたくさんのコマンドがあります．\\
+興味があれば調べてみてください\\
+\section{基本的な用語・・・大雑把な説明}
+\begin{enumerate}
+\item ディレクトリ・・・Windowsでいうフォルダのこと
+\item コンパイル・・・プログラムを機械語に変換する作業のこと．主にコンパイラと言うものが行う．
+\item エディタ・・・プログラムを書くソフト．メモ帳でも問題ないができればいろんな機能がほしいよね．
+\item 関数・・・命令文のこと
+\item ソースコード・・・プログラム本体
+%ずいじつけたし
+\end{enumerate}
+\section{プログラムの基礎}
+基本的なプログラムはC言語ではこのように書きます．\\
+ひとまず書いてみましょう．\\
+\begin{lstlisting}
+#include<stdio.h>
+int main(void){
+	//ここにプログラムを書く
+	return 0;
+}
+\end{lstlisting}
+実行してみましょう\\
+結果は・・・?\\
+またプログラムの中で"//"を打つと，そのあとの文はプログラムとして認識されません\\
+これをコメントアウトといいます．\\
+このプログラムは何をしているか，またこれからどのように変更しているかなどを記述することや，\\
+一時的にプログラムの一部を使わなくさせます．\\
+\section{出力}
+それでは文字を出力するプログラムを書きます\\
+文字を出力する関数(命令文)はprintf()という関数を使います．\\
+この関数はprintf("表示したい内容");と言う風に使います．\\
+それでは次のソースコード(プログラム)を写してください\\
+\begin{lstlisting}
+#include<stdio.h>
+int main(void){
+	printf("Hello World");
+	return 0;
+}
+\end{lstlisting}
+写し終わったら実行してみましょう\\
+結果はどうなったでしょうか\\
+Hello Worldと出力されると思います．\\
+\subsection{インデント}
+先ほどのソースコードをみた時に3行目と4行目に文章が横にずれている事に気付く人がいると思います．\\
+これをインデントと言います\\
+インデントは一応書かなくてもプログラムは動きますが，しないととても見辛いプログラムになるのでなるべく(絶対)しましょう．\\
+これを自動でやってくれる機能をオートインデントと言ってgeditにも備わっているのでそれを設定しましょう．\\
+編集から設定を開きエディタタブから自動インデントを有効にするを押してください．
+\subsection{エスケープシークエンス}
+ここで改行やタブ(大きな空白)を開けるためのコマンドがあります．\\
+それを{¥Large エスケープシークエンス}と言います.\\
+エスケープシークエンスを使ったプログラムに書き換えてみましょう\\
+\begin{lstlisting}
+#include<stdio.h>
+int main(void){
+	printf("Hello world\n");
+	return 0;
+}
+\end{lstlisting}
+今回使ったエスケープシークエンスは改行を意味する"¥n"です．
+エスケープシークエンスはたくさんあるのでいろいろ調べてみてください．
+\section{変数と入力と四則演算}
+\subsection{変数}
+変数とは入力した数値をメモリに名前をつけて保存しておく事です．\\
+箱に数値を入れて保存しておいて，必要な時に取り出して使うようなイメージをするとわかりやすいと思います．\\
+変数の宣言は "変数の型" "変数の名前";となります．
+変数を使ったプログラムを書いてみましょう
+\begin{lstlisting}
+#include<stdio.h>
+int main(void){
+	int a;
+	double b;
+	char c;
+	a=10;
+	b=2.718281;
+	c='A';
+	printf("a,b,c\n");
+	printf("%d,%lf,%c",a,b,c);
+	return 0;
+}
+\end{lstlisting}
+\begin{itembox}{出力結果}
+a,b,c\\
+10,2.718281,A
+\end{itembox}
+変数には型と言うものがあります．
+型の種類は以下の表にまとめました．
+必要に応じて使い分けるようにしましょう
+また，変数を出力するには特殊な命令文を使います．\\
+それを変換指定子と言います．\\
+変換指定子も型によって違いますのである程度覚えておきましょう．\\
+\begin{table}[h]
+\begin{tabular}{|c|c|c|}
+\hline
+変数の型 & 変数の種類 &変換指定子\\ \hline
+int & 整数 & \% d \\ \hline
+float & 小数 & \% f \\ \hline
+double & 大きな小数 & \% lf\\ \hline
+char & 文字  & \% c \\ \hline
+\end{tabular}
+\end{table}
+\subsection{入力}
+入力はscanf()という関数を使います
+ソースコードを写してみてください
+\newpage
+\begin{lstlisting}
+#include<stdio.h>
+int main(void){
+	int a;
+    printf("数値を入力してください\n");
+    scanf("%d",&a);
+    printf("%d\n",a);
+    return 0;
+}
+\end{lstlisting}
+変数に入力する時にも出力を同様に変換指定子を使います．\\
+またscanf()の変数名の中にある\& は忘れるとエラーが出るので忘れないように気をつけましょう．\\
+\subsection{四則演算}
+\begin{table}[h]
+\begin{tabular}{|c|c|}
+\hline
+四則演算 & 記号 \\ \hline
+加算 & + \\ \hline
+減算 & - \\ \hline
+乗算 & * \\ \hline
+除算 & / \\ \hline
+\end{tabular}
+\end{table}
+\begin{lstlisting}
+#include<stdio.h>
+int main(void){
+	double a,b,tasu,hiku,kake,waru;
+    scanf("%lf",&a);
+    scanf("%lf",&b);
+    tasu=a+b;
+    hiku=a-b;
+    kake=a*b;
+    waru=a/b;
+    printf("%lf,%lf,%lf,%lf\n",tasu,hiku,kake,waru);
+    return 0;
+}
+\end{lstlisting}
+\begin{itembox}{出力結果}
+5.000000,1.000000,6.000000,1.500000
+\end{itembox}
+()を使った計算は大括弧や中括弧を使わずに全て()で入れ子構造にします.
+\section{今回使用した関数やキーワード}
+\begin{enumerate}
+\item printf()・・・出力
+\item エスケープシークエンス
+\item 変数の宣言
+\item 変換指定子
+\item scanf()・・・変数に代入
+\item 四則演算
+\end{enumerate}
+\section{今日の復習}
+\begin{enumerate}
+\item "We love SAINO"を画面に出力してください．
+\item 数値を入力して，その数値を画面に出力してください．
+\item 半角文字を一文字入力し，その文字を出力せよ．
+\item 台形の面積を求める計算をせよ
+\end{enumerate}
+\end{document}
