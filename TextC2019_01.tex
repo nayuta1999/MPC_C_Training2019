@@ -5,9 +5,9 @@
 %------------------------------------- パッケージ読み込み
 
 \usepackage[ipaex]{pxchfon}
-\usepackage{itembkbx}
-\usepackage{listings}
-\usepackage{jlisting}
+%\usepackage{itembkbx} %パッケージがないため一時コメントアウト
+\usepackage{./sty/listings}
+\usepackage{./sty/jlisting}
 \lstset{% 
 showstringspaces=false,%空白文字削除
 language={C},% %言語選択
@@ -25,7 +25,9 @@ numberstyle={\scriptsize},%行番号の書体
 stepnumber=1,% %行番号をいくつ飛ばしで表示するか
 numbersep=1zw,% %行番号と本文の間隔
 morecomment=[l]{//}% 
-} 
+}
+\usepackage{ascmac}
+
 \title{C言語講座第一回}
 \author{那由多}
 \date{2019年5月9日}
@@ -54,9 +56,7 @@ Linuxはリーナストーバルズさんが作ったOSで無料です．\\
 \begin{lstlisting}
 $
 \end{lstlisting}
-
 この\$ から始まる文字はこの端末に打つコマンドと覚えておきましょう
-
 \subsection{位置の確認と移動}
 端末での操作は基本的に自分の位置を把握してそこで操作することが大切です．\\
 よってまず自分の位置を確認しましょう\\
@@ -69,7 +69,6 @@ $ pwd
 \begin{lstlisting}
 $ ls
 \end{lstlisting}
-
 このコマンドで自分のいる位置の中身を把握することができます．\\
 それでは次にディレクトリの移動をしてみましょう
 \begin{lstlisting}
@@ -81,7 +80,6 @@ $ cd Documents
 \begin{lstlisting}
 $ cd "好きなディレクトリ"
 \end{lstlisting}
-
 ""これに囲まれた部分は任意のものに変更してください
 また一つ前のディレクトリに戻りたい場合は
 \begin{lstlisting}
@@ -98,13 +96,10 @@ $ cd ..
 \begin{lstlisting}
 $ gedit "ファイル名"
 \end{lstlisting}
-
 これでエディタを起動することができますのでプログラムを書きましょう.\\
-
 \subsubsection{コンパイル}
 コンパイルとはプログラムを機械語に変換する作業のことで，コンパイラというものが行います．\\
 コンパイラのコマンドは
-
 \begin{lstlisting}
 $ gcc "ファイル名"
 \end{lstlisting}
@@ -114,9 +109,7 @@ $ gcc "ファイル名"
 \begin{lstlisting}
 $ ./a.out
 \end{lstlisting}
-
 これでプログラムを実行することができます．
-
 ここで挙げたコマンドは本当に必要最低限のコマンドです．\\
 そのほかにもたくさんのコマンドがあります．\\
 興味があれば調べてみてください\\
@@ -281,3 +274,18 @@ int main(void){
 \item 台形の面積を求める計算をせよ
 \end{enumerate}
 \end{document}
+
+    © 2019 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
