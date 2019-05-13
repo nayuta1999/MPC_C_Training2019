@@ -6,17 +6,18 @@
 %%
 %% listings.dtx  (with options: `kernel')
 %% 
-%% Please read the software license in listings-1.3.dtx or listings-1.3.pdf.
+%% Please read the software license in listings.dtx or listings.pdf.
 %%
 %% (w)(c) 1996--2004 Carsten Heinz and/or any other author listed
 %% elsewhere in this file.
 %% (c) 2006 Brooks Moses
+%% (c) 2013- Jobst Hoffmann
 %%
 %% Send comments and ideas on the package, error reports and additional
-%% programming languages to <bmoses@dpdx.net>.
+%% programming languages to Jobst Hoffmann at <j.hoffmann@fh-aachen.de>.
 %%
-\def\filedate{2007/02/22}
-\def\fileversion{1.4}
+\def\filedate{2019/02/27}
+\def\fileversion{1.8b}
 \NeedsTeXFormat{LaTeX2e}
 \AtEndOfPackage{\ProvidesPackage{listings}
              [\filedate\space\fileversion\space(Carsten Heinz)]}
@@ -391,14 +392,14 @@
     \expandafter\let\expandafter#3%
         \csname if\ifx #1t}true\else false\fi\endcsname}
 \def\lstKV@SwitchCases#1#2#3{%
-    \def\lst@temp##1\\#1&##2\\##3##4\@nil{%
+    \def\lst@temp##1\\#1:##2\\##3##4\@nil{%
         \ifx\@empty##3%
             #3%
         \else
             ##2%
         \fi
     }%
-    \lst@temp\\#2\\#1&\\\@empty\@nil}
+    \lst@temp\\#2\\#1:\\\@empty\@nil}
 \lst@UserCommand\lstset{\begingroup \lst@setcatcodes \lstset@}
 \def\lstset@#1{\endgroup \ifx\@empty#1\@empty\else\setkeys{lst}{#1}\fi}
 \def\lst@setcatcodes{\makeatletter \catcode`\==12\relax}
@@ -884,7 +885,7 @@
     \ifnum#2=\z@
         \expandafter\@gobbletwo
     \else
-        \lccode`\~=#2\lccode`\/=#2\lowercase{\lst@CCPut@~{#1/}}%
+        \begingroup\lccode`\~=#2\lccode`\/=#2\lowercase{\endgroup\lst@CCPut@~{#1/}}%
     \fi
     \lst@CCPut#1}
 \def\lst@CCPut@#1#2{\lst@lAddTo\lst@SelectStdCharTable{\def#1{#2}}}
@@ -971,7 +972,7 @@
     \let\do\lst@do@noligs \verbatim@nolig@list
     \lsthk@SelectCharTable
     \lst@DeveloperSCT
-\lst@DefRange
+    \lst@DefRange
     \ifx\lst@Backslash\relax\else
         \lst@LetSaveDef{"5C}\lsts@backslash\lst@Backslash
     \fi}
@@ -1414,10 +1415,10 @@
 \lst@AddToHook{PreSet}{\def\lst@firstline{1\relax}%
                        \let\lst@linerange\@empty}
 \lst@AddToHook{Init}
-{\ifx\lst@linerange\@empty
-     \edef\lst@linerange{{\lst@firstline}-{\lst@lastline},}%
- \fi
- \lst@GetLineInterval}%
+    {\ifx\lst@linerange\@empty
+         \edef\lst@linerange{{\lst@firstline}-{\lst@lastline},}%
+     \fi%
+     \lst@GetLineInterval}%
 \def\lst@GetLineInterval{\expandafter\lst@GLI\lst@linerange\@nil}
 \def\lst@GLI#1,#2\@nil{\def\lst@linerange{#2}\lst@GLI@#1--\@nil}
 \def\lst@GLI@#1-#2-#3\@nil{%
@@ -1488,7 +1489,11 @@
      \global\advance\c@lstnumber-\lst@advancelstnum
      \ifx \lst@firstnumber\c@lstnumber
          \global\advance\c@lstnumber-\lst@advancelstnum
-     \fi}
+     \fi%
+     \lst@ifincluderangemarker\else%
+         \global\advance\c@lstnumber by 1%
+     \fi%
+     }
 \def\lst@DefRangeEnd{%
     \ifx\lst@rangeend\@empty\else
         \expandafter\lst@CArgX\lst@rangeend\relax\lst@DefRangeE
@@ -1651,9 +1656,9 @@
 \let\lst@ifbox\iffalse
 \lst@Key{float}\relax[\lst@floatplacement]{%
     \lstKV@SwitchCases{#1}%
-    {true&\let\lst@floatdefault\lst@floatplacement
+    {true:\let\lst@floatdefault\lst@floatplacement
           \let\lst@float\lst@floatdefault\\%
-     false&\let\lst@floatdefault\relax
+     false:\let\lst@floatdefault\relax
            \let\lst@float\lst@floatdefault
     }{\def\lst@next{\@ifstar{\let\lst@beginfloat\@dblfloat
                              \let\lst@endfloat\end@dblfloat
@@ -1883,7 +1888,8 @@
       \def\lst@boxpos{b}%
       \lsthk@PreSet\lstset{flexiblecolumns,#1}%
       \lsthk@TextStyle
-      \@ifnextchar\bgroup{\afterassignment\lst@InlineG \let\@let@token}%
+      \@ifnextchar\bgroup{%
+        \afterassignment\lst@InlineG \let\@let@token}%
                          \lstinline@}
 \def\lstinline@#1{%
     \lst@Init\relax
@@ -1997,16 +2003,20 @@
 \def\lstinputlisting{%
     \begingroup \lst@setcatcodes \lst@inputlisting}
 \newcommand\lst@inputlisting[2][]{%
-    \endgroup
-    \def\lst@set{#1}%
-    \IfFileExists{\lst@inputpath#2}%
-        {\expandafter\lst@InputListing\expandafter{\lst@inputpath#2}}%
-        {\filename@parse{\lst@inputpath#2}%
-         \edef\reserved@a{\noexpand\lst@MissingFileError
-             {\filename@area\filename@base}%
-             {\ifx\filename@ext\relax tex\else\filename@ext\fi}}%
-         \reserved@a}%
-    \lst@doendpe \@newlistfalse \ignorespaces}
+  \endgroup
+  \bgroup\def\lst@set{#1}%
+  \expandafter\lstset\expandafter{\lst@set}%
+  \IfFileExists{\lst@inputpath#2}%
+    {\lst@InputListing{\lst@inputpath#2}}%
+    {\filename@parse{\lst@inputpath#2}%
+      \edef\reserved@a{\noexpand\lst@MissingFileError
+        {\filename@area\filename@base}%
+        {\ifx\filename@ext\relax tex\else\filename@ext\fi}}%
+      \reserved@a
+  \let\lst@doendpe\@empty}%
+  \egroup
+  \lst@doendpe \@newlistfalse \ignorespaces%
+}
 \def\lst@MissingFileError#1#2{%
     \typeout{^^J! Package Listings Error: File `#1(.#2)' not found.^^J%
         ^^JType X to quit or <RETURN> to proceed,^^J%
@@ -2123,7 +2133,7 @@
         {\PackageError{Listings}{Environment `#1' already defined}\@eha
          \@gobbletwo}}
 \def\@tempa#1#2#3{%
-\gdef\lstnewenvironment@##1##2##3##4##5{%
+  \gdef\lstnewenvironment@##1##2##3##4##5{%
     \begingroup
     \global\@namedef{end##2}{\lstenv@Error{##2}}%
     \global\@namedef{##2}{\def\lstenv@name{##2}%
@@ -2194,11 +2204,14 @@
         \let\lst@insertargs\@empty
     \fi \fi}
 }\endgroup
-\lstnewenvironment{lstlisting}[2][]
-    {\lst@TestEOLChar{#2}%
+\lstnewenvironment{lstlisting}[2][]{%
+     \lst@TestEOLChar{#2}%
      \lstset{#1}%
-     \csname\@lst @SetFirstNumber\endcsname}
-    {\csname\@lst @SaveFirstNumber\endcsname}
+     \csname\@lst @SetFirstNumber\endcsname%
+   }{%
+     \let\if@nobreak\iffalse%
+     \csname\@lst @SaveFirstNumber\endcsname%
+   }
 \lst@Key{fancyvrb}\relax[t]{%
     \lstKV@SetIf{#1}\lst@iffancyvrb
     \lstFV@fancyvrb}
