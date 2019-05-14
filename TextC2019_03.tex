@@ -4,8 +4,7 @@
 \documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
 %------------------------------------- パッケージ読み込み
 \newcommand{\stypath}{./sty}
-\newcommand{\codepath}{./code/02_Answer}
-
+\newcommand{\codepath}{./code/03}
 \usepackage[ipaex]{pxchfon}
 %\usepackage{itembkbx}
 \usepackage{\stypath/listings}
@@ -29,35 +28,45 @@ stepnumber=1,% %行番号をいくつ飛ばしで表示するか
 numbersep=1zw,% %行番号と本文の間隔
 morecomment=[l]{//}% 
 } 
-\title{C言語講座第2回演習問題回答}
-\author{那由多・榊}
+\title{C言語講座第二回}
+\author{那由多(堀越亮我)}
 \date{2019年5月16日}
-
 \begin{document}
+\maketitle
+\section{前回の復習}
+\begin{enumerate}
+\item if,if-else if-else if-else
+\item switch-case
+\end{enumerate}
+\section{値の代入操作とインクリメント・デクリメント}
+\subsection{値の代入操作}
+第一回の時にC言語における=は左の変数に右の数式の計算結果を代入するという話をしました．\\
+それの復習を行います．
+\begin{lstlisting}
+number=334;
+\end{lstlisting}
+この代入操作には何も違和感がありませんが次の場合はどうでしょう．
+\begin{lstlisting}
+number=number+1;
+\end{lstlisting}
+この代入操作はおかしく見えますが正しい操作です．これはnumberに+1した数字をnumberに代入するという操作です．
+この操作は少し省略して書くことができます．
 
-\section{榊くんからの挑戦状}
-\subsection{問1}
-\subsubsection{模範解答}
-\lstinputlisting{\codepath/sakaki_exe01.c}
-\subsubsection{解説}
-%ここに解説
+\begin{lstlisting}
+number+=1
+\end{lstlisting}
+この表記は先ほどと同じ操作です．
+具体的には
+\begin{itembox}
+"変数" "計算操作"="変数を操作したい値"
+\begin{itembox}
+という風になります．
+少し見辛いですがよく使う表現ですのでよく確認しておきましょう
 
-\subsection{問2}
-\subsubsection{模範解答}
-\lstinputlisting{\codepath/sakaki_exe02.c}
-\subsubsection{解説}
-%ここに解説
-
-\subsection{問3}
-\subsubsection{模範解答}
-\lstinputlisting{\codepath/sakaki_exe03.c}
-\subsubsection{解説}
-%ここに解説
-
-\subsection{問4}
-\subsubsection{模範解答}
-\lstinputlisting{\codepath/sakaki_exe04.c}
-\subsubsection{解説}
-%ここに解説
-o
+\subsection{インクリメント・デクリメント}
+%ここからはまだ
+\subsection{前置と後置}
+\section{繰り返し操作}
+\section{制御}
+\section{演習問題}
 \end{document}
