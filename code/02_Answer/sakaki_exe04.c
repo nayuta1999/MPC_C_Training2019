@@ -15,9 +15,11 @@ int main(void){
 	if(a*b==c){
 		printf("ロブジェ");
 	}
-
-	if(a/b==c){
-		printf("チャイナ");
+	
+	if(b!=0){
+		if(a/b==c){
+			printf("チャイナ");
+		}
 	}
 
 	return 0;
