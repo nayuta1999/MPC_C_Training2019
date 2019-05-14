@@ -41,19 +41,28 @@ morecomment=[l]{//}%
 \lstinputlisting{\codepath/sakaki_exe01.c}
 \subsubsection{解説}
 %ここに解説
+if文,else if文を正しく適用できるかを問う問題であった。\\
+特に気を付けなければいけないのは、a=bの時であろう。\\
+C言語の=は代入の意味で使われるので、もし、\\
+if(a=b)などというコードを書いてしまっては、間違いが生じることがある(ただし、コンパイルは通るし、実行は可能である)。\\
 
 \subsection{問2}
 \subsubsection{模範解答}
 \lstinputlisting{\codepath/sakaki_exe02.c}
 \subsubsection{解説}
 %ここに解説
-
+if文と、else if文における複数条件、もしくはネスト構造によって書くことが出来るかを問う問題であった。\\
+論理演算では&&と||に優先順位があり、不安ならば優先させたい項目を()でくくることで、間違いなくコーディングすることができる。\\
 \subsection{問3}
 \subsubsection{模範解答}
 \lstinputlisting{\codepath/sakaki_exe03.c}
 \subsubsection{解説}
 %ここに解説
-
+問題文の意図を正しく読み取って、必要なif文を自分で作成する問題であった。\\
+a,b,c,dの中の最大値を求めるには、まず、暫定の最大値max_numberとしてaを代入し、
+bがそれを超えていればbに変更、cがそれを超えていれば......とすることで、全ての最大値を求めることが出来る。\\
+同様にすることで、最小値も求められる。\\
+他の解答としては、多重のネストを構成することで、全パターンの最大値をif文に書き表す方法もある。\\
 \subsection{問4}
 \subsubsection{模範解答}
 \lstinputlisting{\codepath/sakaki_exe04.c}
