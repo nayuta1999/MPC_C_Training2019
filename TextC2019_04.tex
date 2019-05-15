@@ -4,7 +4,7 @@
 \documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
 %------------------------------------- パッケージ読み込み
 \newcommand{\stypath}{./sty}
-\newcommand{\codepath}{../../code/04}
+\newcommand{\codepath}{./code/04}
 \newcommand{\articlepath}{./article/04}
 \usepackage[ipaex]{pxchfon}
 %\usepackage{itembkbx}
@@ -33,11 +33,11 @@ morecomment=[l]{//}%
 \author{MPC部員}
 \date{2019年5月23日}
 \begin{document}
+\maketitle
+\include{\articlepath/array}
 
-\include{\articlepath/array.tex}
+\include{\articlepath/doublearray}
 
-\include{\articlepath/doublearray.tex}
-
-\include{\articlepath/exercise.tex}
+\include{\articlepath/exercise }
 
 \end{document}
