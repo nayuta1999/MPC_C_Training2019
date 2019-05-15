@@ -30,4 +30,4 @@ docker container run -v $pwd:/texsrc -it --rm aruneko/texlive dvipdfmx TextC2019
 ```
 という形で載せてください
 ### 第四回以降
-articleファイルの中にファイルを作っておくのでそれを編集してください．
+articleディレクトリの中にファイルを作っておくのでそれを編集してください．
