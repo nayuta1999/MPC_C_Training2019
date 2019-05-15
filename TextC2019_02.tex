@@ -219,7 +219,6 @@ if()
 \subsection{演習問題}
 
 \subsubsection{榊くんの挑戦状}
-\\
 *榊くんの挑戦状は、BASICから難易度が高いです。もし解けなければ、普通の演習問題に取り組みましょう。\\
 \\
 問1\\
@@ -227,9 +226,9 @@ EASY\\
 出題意図:if文,else if文を正しく書けるか。\\
 
 int型の整数a,bを宣言し、入力からa,bをそれぞれ受け取る。\\
-a<bならば '<\n'を\\
-a=bならば '=\n'を\\
-a>bならば '>\n'を\\
+$a<b$ならば '<\textbackslash n'を\\
+a=bならば '=\textbackslash n'を\\
+a>bならば '>\textbackslash n'を\\
 出力しなさい。\\
 \\
 \\
@@ -238,10 +237,10 @@ BASIC\\
 出題意図:if文,else if文の複数条件が書けるか。論理演算子の優先順位を正しく覚えること。\\
 \\
 int型の整数a,bを宣言し、入力からa,bをそれぞれ受け取る。\\
-a<b かつ (100<b または a<100) 	ならば "チャイナ\n",\\
-a=b かつ (a=100 または b=100) 	ならば "もっちゃん\n",\\
-a>b かつ (a<100 または b<100) 	ならば "ロブジェ\n",\\
-上記以外ならば "SAINO\n"\\
+a<b かつ (100<b または a<100) 	ならば "チャイナ\textbackslash n",\\
+a=b かつ (a=100 または b=100) 	ならば "もっちゃん\textbackslash n",\\
+a>b かつ (a<100 または b<100) 	ならば "ロブジェ\textbackslash n",\\
+上記以外ならば "SAINO\textbackslash n"\\
 と出力するプログラムを書きなさい。\\
 \\
 問3\\
@@ -258,10 +257,10 @@ BASIC\\
 出題意図:四則演算を用いて,if文による条件分岐を適用できるか。\\
 \\
 int型の整数a,b,cが与えられます。\\
-a+b=cならば "SAINO\n",\\
-a-b=cならば "もっちゃん\n",\\
-a*b=cならば "ロブジェ\n",\\
-bが0でなく,さらにa/b=cならば "チャイナ\n",\\
+a+b=cならば "SAINO\textbackslash n",\\
+a-b=cならば "もっちゃん\textbackslash n",\\
+a*b=cならば "ロブジェ\textbackslash n",\\
+bが0でなく,さらにa/b=cならば "チャイナ\textbackslash n",\\
 と出力せよ。なお、a/b において、aもbも整数型ならばその小数点以下は切り捨てられるという仕様もこの機会に認識すること。\\
 例えば、a=4,b=3,c=1の時は"もっちゃん"と"チャイナ"が出力される。\\
 \\
@@ -281,7 +280,7 @@ bが0でなく,さらにa/b=cならば "チャイナ\n",\\
 (晩御飯奢り権は新学部1年生先着1名限定)\\
 \\
 \\
-\begin{itembox}{EX問題のひな型}
+\begin{lstlisting}{EX問題のひな型}
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
@@ -298,7 +297,7 @@ int main(void){
 	
 	return 0;
 }
-\end{itembox}
+\end{lstlisting}
 
 \end{document}
 
