@@ -21,13 +21,13 @@ docker container run -v $pwd:/texsrc -it --rm aruneko/texlive dvipdfmx TextC2019
 
 このような形でできると思います．
 
-##テキストの編集
-###第三回まで
+## テキストの編集
+### 第三回まで
 ソースが基本的にtexファイルにベタ書きされているのでそれを編集してください．
 ソースコードを載せたい場合は
 ```
 \lstinputlisting{\codepath/"任意のファイル"}
 ```
 という形で載せてください
-###第四回以降
+### 第四回以降
 articleファイルの中にファイルを作っておくのでそれを編集してください．
