@@ -5,6 +5,7 @@
 %------------------------------------- パッケージ読み込み
 \newcommand{\stypath}{./sty}
 \newcommand{\codepath}{./code/03}
+\newcommand{\articlepath}{./article/03}
 \usepackage[ipaex]{pxchfon}
 %\usepackage{itembkbx}
 \usepackage{\stypath/listings}
@@ -66,8 +67,10 @@ number+=1
 \subsection{インクリメント・デクリメント}
 %ここからはまだ
 \subsection{前置と後置}
-\section{繰り返し操作}
-\section{制御}
+%\section{繰り返し操作}
+\include{\articlepath/for_while}
+%\section{制御}
+\include{\artilepath/control}
 \section{演習問題}
 問1から問3までがfor文の動作確認\\
 問4はfor文の中で条件分岐をする練習\\
