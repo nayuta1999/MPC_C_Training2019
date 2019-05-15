@@ -1,0 +1,41 @@
+%------------------------------------- ページサイズなどの書式設定
+%¥documentclass[a4j,twocolumn, dvipdfmx]{jsarticle} % 二段組の構成にする
+%¥documentclass[a4j,notitlepage]{jsarticle} % タイトルだけのページを作らない
+\documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
+%------------------------------------- パッケージ読み込み
+\newcommand{\stypath}{./sty}
+\newcommand{\codepath}{./code/06}
+\newcommand{\articlepath}{./article/06}
+\usepackage[ipaex]{pxchfon}
+%\usepackage{itembkbx}
+\usepackage{\stypath/listings}
+\usepackage{ascmac}
+\usepackage{\stypath/jlisting}
+\lstset{% 
+showstringspaces=false,%空白文字削除
+language={C},% %言語選択
+basicstyle={\upshape},% %標準の書体
+identifierstyle={\small},% %キーワードでない文字の書体
+ndkeywordstyle={\small},% %キーワードその２の書体
+stringstyle={\small\ttfamily},% %””で囲まれた文字などの書体
+frame={tb},% %枠、デザインなど
+breaklines=true,% %行が長くなった時の自動改行
+columns=[l]{fullflexible},% %書体による列幅の違いを調整するか
+numbers=left,% %行番号を表示するか
+xrightmargin=0zw,% %余白の調整？
+xleftmargin=0zw,% %余白の調整
+numberstyle={\scriptsize},%行番号の書体
+stepnumber=1,% %行番号をいくつ飛ばしで表示するか
+numbersep=1zw,% %行番号と本文の間隔
+morecomment=[l]{//}% 
+} 
+\title{C言語講座第四回・復習回}
+\author{MPC部員}
+\date{2019年6月13日}
+\begin{document}
+\maketitle
+\include{\articlepath/function}%関数についての説明
+\include{\articlepath/Recursive_function}%再帰関数についての説明(難しいので分けました)
+\include{scope}%変数のスコープについての説明
+\include{exercise}%演習問題
+\end{document}
