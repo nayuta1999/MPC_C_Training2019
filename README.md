@@ -12,11 +12,10 @@ dvipdfmx "生成されたファイル.dvi"
 ```
 
 ### ない場合
-私は[aruneko/texlive](https://github.com/aruneko/texlive)を使わせてもらいましたのでそれを使えば確実にできるかと思います．
+コンパイルしたい回のディレクトリを開いて
 
 ```
-docker container run -v $pwd:/texsrc -it --rm aruneko/texlive platex TextC2019_01.tex
-docker container run -v $pwd:/texsrc -it --rm aruneko/texlive dvipdfmx TextC2019_01.dvi
+docker-compose up
 ```
 
 このような形でできると思います．
