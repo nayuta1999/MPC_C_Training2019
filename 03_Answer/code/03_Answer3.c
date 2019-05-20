@@ -6,7 +6,7 @@ int main(void){
 	scanf("%d%d",&x,&y);
 	
 	for(int i=x;i<=y;i++){
-		sum+=i;	//sum=sum+i‚ðˆÓ–¡‚·‚é.
+		sum+=i;	//sum=sum+i
 	}
 	
 	printf("%d",sum);

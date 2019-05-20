@@ -7,14 +7,14 @@ int main(void){
 	
 	for(int i=x;i<=y;i++){
 		if(i%3==0){continue;}
-		sum+=i;	//sum=sum+iを意味する.
+		sum+=i;	//sum=sum+i.
 	}
 	/*
 	for(int i=x;i<=y;i++){
 		if(i%3==0){}
 		else{
-			sum+=i;    //このように書いても良い。様々な書き方が存在する。
-		}              //自分が理解しやすい書き方を探そう。
+			sum+=i;    
+		}
 	}
 	*/
 	
