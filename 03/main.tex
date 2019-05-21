@@ -4,7 +4,7 @@
 \documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
 %------------------------------------- パッケージ読み込み
 \newcommand{\stypath}{./sty}
-\newcommand{\codepath}{./code/03}
+\newcommand{\codepath}{./code}
 \newcommand{\articlepath}{./article}
 \usepackage[ipaex]{pxchfon}
 %\usepackage{itembkbx}
@@ -34,6 +34,7 @@ morecomment=[l]{//}%
 \date{2019年5月23日}
 \begin{document}
 \maketitle
+\include{\articlepath/Editor}
 \section{前回の復習}
 \begin{enumerate}
 \item if,if-else if-else if-else
