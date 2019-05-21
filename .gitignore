@@ -10,7 +10,7 @@
 *.cb
 *.cb2
 *.pdf
-
+.DS_Store
 *.dvi
 *.xdv
 *-converted-to.*
