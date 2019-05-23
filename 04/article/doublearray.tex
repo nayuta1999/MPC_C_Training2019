@@ -1,0 +1,41 @@
+﻿\section{2次元配列}
+　1次元配列はary[1]のように添え字が1つでした。2次元配列は単純にary[1][1]のように添え字が2つになった配列のことを言います。
+ちなみにこれはオセロや五目並べの盤面、グリッドなどをつくるときによく使います。
+
+\subsection{2次元配列の宣言}
+　まずは2次元配列の宣言の仕方です。宣言方法は以下のようになっています。
+
+\begin{itembox}{2次元配列の宣言方法}
+型名　配列名[要素数][要素数];\\
+例)int array[3][4];
+\end{itembox}
+
+ちなみに2次元配列にも次のように代入できます。
+\lstinputlisting{\codepath/doublearray1.c}
+
+\begin{itembox}{実行結果}
+5
+\end{itembox}
+
+\subsection{2次元配列の初期化}
+　2次元配列の初期化は1次元配列の初期化と少しだけ似ています。
+
+\lstinputlisting{\codepath/doublearray2.c}
+
+\begin{itembox}{実行結果}
+6
+\end{itembox}
+
+\subsection{2次元配列の参照}
+　2次元配列の配列の中身を確認したり、配列を扱うときは一緒にfor文を扱うことが多いです。
+
+\lstinputlisting{\codepath/doublearray3.c}
+
+\begin{itembox}{実行結果}
+6 numbers put on please.\\
+2 3 4 5 6 7\\
+2 3 4 5 6 7
+\end{itembox}
+表示的には先ほどの1次元配列と変わりません。
+ちなみに3次元以上の多次元配列をつくることもできます。
+2次元配列とほぼ似たような宣言、参照をするため省略します。
