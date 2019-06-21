@@ -1,0 +1,60 @@
+\section{演習問題}
+\subsection{問1}
+\subsubsection{解答例}
+\lstinputlisting{\codepath/papyrus/exercise1.c}
+\subsubsection{解説}
+\begin{verbatim}
+正直特に解説することがない。
+この問題が解けないということは、考え方ではなく関数への理解が足りていないと思われる。
+関数は慣れればとても便利なものなので、是非マスターしよう！
+ちなみに「//return (a < b)? b : a;」は三項演算子を用いた方法である。
+
+関数について: https://9cguide.appspot.com/11-01.html
+\end{verbatim}
+
+\subsection{問2}
+\subsubsection{解答例}
+\lstinputlisting{\codepath/papyrus/exercise2.c}
+\subsubsection{解説}
+\begin{verbatim}
+累乗を計算するというもの。
+今回気を付けるべきはループする回数、
+0乗(n = 0)のときの処理、
+変数の扱える値を超えること(オーバーフロー)への注意の3点だろうか。
+
+ループの判定がnではなくn-1となっている点に注意していただきたい。
+0乗は1になるので、if文で分岐し、return文で返してしまおう。
+return文が実行されると、
+それ以降の文は実行されずに、その関数が閉じられることを理解しよう。
+値の扱える範囲はいつも注意しなければならない。
+今回の入力範囲では、最大100の10乗が考えられ、int型では扱えないことを気を付けよう。
+最終的な値だけでなく、途中で利用する変数などの値にも常に気を配ろう。
+
+Cの扱える値の範囲: https://webkaru.net/clang/limits-header/
+\end{verbatim}
+
+\subsection{問3}
+\subsubsection{解答例}
+\lstinputlisting{\codepath/papyrus/exercise3.c}
+\subsubsection{解説}
+\begin{verbatim}
+文字コードの知識がなければまず解けない問題である。
+「'a' - 'A'」はaとAの文字コードの値の差を表している。
+Cで扱うASCIIコード表において、'a' - 'A' = 32である。
+大文字より小文字のほうが値が大きいことさえ知っていれば、解くことができる。
+printf("%d\n", 'a' - 'A')は32を出力。
+printf("%c\n", 'a' - 32)はAを出力する(31ならB)。
+
+文字の扱い: https://9cguide.appspot.com/14-01.html
+\end{verbatim}
+
+\subsection{最後に}
+\begin{verbatim}
+今回作ってもらった3つの関数は標準ライブラリ関数としてCに実装されている。
+以下リファレンス
+fmax: http://www.c-tipsref.com/reference/math/fmax.html
+pow: http://www.c-tipsref.com/reference/math/pow.html
+tolower: http://www.c-tipsref.com/reference/ctype/tolower.html
+toupper: http://www.c-tipsref.com/reference/ctype/toupper.html
+
+\end{verbatim}
