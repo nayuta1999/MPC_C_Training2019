@@ -1,4 +1,4 @@
-%------------------------------------- ページサイズなどの書式設定
+﻿%------------------------------------- ページサイズなどの書式設定
 %¥documentclass[a4j,twocolumn, dvipdfmx]{jsarticle} % 二段組の構成にする
 %¥documentclass[a4j,notitlepage]{jsarticle} % タイトルだけのページを作らない
 \documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
@@ -36,6 +36,6 @@ morecomment=[l]{//}%
 \maketitle
 \include{\articlepath/function}%関数についての説明
 \include{\articlepath/Recursive_function}%再帰関数についての説明(難しいので分けました)
-\include{scope}%変数のスコープについての説明
+\include{\articlepath/scope}%変数のスコープについての説明
 \include{exercise}%演習問題
 \end{document}
