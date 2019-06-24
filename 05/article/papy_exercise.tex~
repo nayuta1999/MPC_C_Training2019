@@ -1,0 +1,81 @@
+\section{演習問題(さんたろー作)}
+\subsection{問1(難易度☆☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+自分と敵が交互に攻撃する。自分と敵それぞれの体力と攻撃力を入力し、
+自分が先に倒れる場合は「Lose」、敵が先に倒れる場合は「Win」と表示しなさい。
+以下にルールと実行例を記す。
+
+1.先攻は自分
+2.与えるダメージ = 攻撃者の攻撃力
+3.体力が0以下になると倒れる
+4.入力は1以上100以下の整数
+5.自分の体力、攻撃力、敵の体力、攻撃力の順で入力
+\end{verbatim}
+
+\subsubsection{実行例}
+\begin{verbatim}
+player_hp = 50
+player_atk = 30
+enemy_hp = 20
+enemy_atk = 100
+Win!!
+
+
+player_hp = 50
+player_atk = 10
+enemy_hp = 30
+enemy_atk = 25
+Lose!!
+\end{verbatim}
+
+\subsection{問2(難易度☆)}
+\subsubsection{問題文}
+サンズ君は数学の単位をとれたか確かめたい。
+中間テストの点数がa点、期末テストの点数がb点だ。
+合格なら「pass」、不合格なら「fail」を入力しなさい。
+以下成績の付け方である
+
+1.テストはどちらも100点満点
+2.中間テストを4割、期末テストを6割として換算し、その合計を評定とする(100点満点)
+3.やさしいので、換算した合計の小数点第一位は切り上げ(59.1→60)
+4.60点以上の評定で合格
+
+\end{verbatim}
+
+\subsubsection{実行例}
+\begin{verbatim}
+a = 65
+b = 55
+fail
+
+a = 66
+b = 55
+pass
+\end{verbatim}
+
+\subsection{問3(難易度☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+パピルス君はお金をN円持っている。
+お店に100円のリンゴがa個、50円のバナナがb本、20円の飴がc個売っている。
+パピルス君が手持ちのお金で買える最大個数を出力しなさい。
+
+入力: N, a, b, c(全て0以上1000以下の整数)
+出力: 買うことができる最大個数
+\end{verbatim}
+
+\subsubsection{実行例}
+\begin{verbatim}
+n = 1000
+a = 10
+b = 10
+c = 10
+23
+
+n = 100
+a = 1
+b = 1
+c = 0
+1
+\end{verbatim}
