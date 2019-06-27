@@ -1,0 +1,68 @@
+\section{演習問題(さんたろー作)}
+\subsection{問1(難易度☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+2つの整数のうち大きいほうの値を返す関数を作成し、挙動を確かめなさい。
+ただし、同値の場合は最初の値(a)を返すものとする。
+
+返り値: int(大きい方の値)
+引数: int a(1つ目の整数), int b(2つ目の整数)
+(-1000 <= a, b <= 1000)
+\end{verbatim}
+
+\subsubsection{実行例}
+\begin{verbatim}
+a = 5
+b = 10
+最大値は10です
+
+a = -10
+b = -100
+最大値は-10です
+\end{verbatim}
+
+\subsection{問2(難易度☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+AのN乗の値を返す関数を作成し、挙動を確かめなさい。
+(基本はループ文でやるが、再帰関数を利用してもよい)
+多少の誤差は許容する。
+
+返り値: double(aのn乗の値)
+引数: double a, int n
+(0 < a < 100, 0 <= n <= 10)
+\end{verbatim}
+
+\subsubsection{実行例}
+\begin{verbatim}
+a = 10
+n = 3
+10.000000の3乗は1000.000000です
+
+a = 2.5
+n = 3
+2.500000の3乗は15.625000です
+\end{verbatim}
+
+\subsection{問3(難易度☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+char型の変数1つを引数としてもち、
+アルファベットの大文字なら小文字に、小文字なら大文字に、
+アルファベット以外の文字ならそのまま返す関数を作成し、挙動を確かめなさい。
+
+返り値: char(変換した文字)
+引数: char(変換する文字)
+\end{verbatim}
+
+\subsubsection{実行例}
+\begin{verbatim}
+c = c
+変換後: C
+
+c = A
+変換後: A
+
+c = !
+変換後: !
+\end{verbatim}
