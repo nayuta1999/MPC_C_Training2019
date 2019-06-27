@@ -1,7 +1,20 @@
+\section{演習問題(さんたろー作)}
+\subsection{問1}
+\subsubsection{解答例}
+\lstinputlisting{\codepath/04_papyAnswer1.c}
+\subsubsection{解説}
+int型で要素数10の配列を宣言。for文でiの値を0から9までまわし、それぞれの要素にscanf関数で入力された値を代入。その後for文でiの値を9から0までまわし、要素をひとつずつ表示している。
+
+\subsection{問2}
+\subsubsection{解答例}
+\lstinputlisting{\codepath/04_papyAnswer2.c}
+\subsubsection{解説}
+入力までは問1と変わらない。表示するときに配列の先頭から、という部分、if文で判定して出力している。3の倍数ということは3で割った余りが0ということである。
+
 \section{演習問題}
 \subsection{問1}
 \subsubsection{解答}
-\lstinputlisting{\codepath/03_Answer1.c}
+\lstinputlisting{\codepath/04_Answer1.c}
 \subsubsection{解説}
 6個の要素を持つ配列を宣言し、その値を3倍にして格納し、出力する問題である。
 for文は3回使ってもよいし、1度しか使わなくても良い。配列のすべての要素に対する操作は、for文によって簡単に書くことが出来る。
@@ -10,7 +23,7 @@ for文は3回使ってもよいし、1度しか使わなくても良い。配列
 
 \subsection{問2}
 \subsubsection{解答}
-\lstinputlisting{\codepath/03_Answer2.c}
+\lstinputlisting{\codepath/04_Answer2.c}
 \subsubsection{解説}
 配列とfor文を用いれば、配列の後ろから要素を順に出力することができる。
 要素はa[0]からa[5]までの6つを入力し,出力したことに注意して欲しい。
@@ -20,17 +33,17 @@ for文は3回使ってもよいし、1度しか使わなくても良い。配列
 
 \subsection{問3}
 \subsubsection{解答}
-\lstinputlisting{\codepath/03_Answer3.c}
+\lstinputlisting{\codepath/04_Answer3.c}
 \subsubsection{解説}
 2重for文は慣れてきただろうか。
 今回は2行2列の行列の足し算なので、各i,j(i,jは[0,2)を満たす整数)に対してそれぞれの行列の和を求めればよい。
-難しいので演習にはしなかったが、行列の積を求めるプログラムを書いてみると大変勉強になるだろう(榊くんの挑戦状HARDにしようか悩みました)。
+for文によって実装すれば、何行何列になっても同じ形でコードとして書くことが出来る。
 %ここに解説
 
 \section{榊くんからの挑戦状}
 \subsection{問1}
 \subsubsection{解答}
-\lstinputlisting{\codepath/03_AnswerS1.c}
+\lstinputlisting{\codepath/04_AnswerS1.c}
 \subsubsection{解説}
 積を求めるので、各要素を掛け算していけばよい。
 答えを入れる変数を1にしてから、for文により要素を掛け算していくことで実現できる。
@@ -39,7 +52,7 @@ for文は3回使ってもよいし、1度しか使わなくても良い。配列
 
 \subsection{問2}
 \subsubsection{解答}
-\lstinputlisting{\codepath/03_AnswerS2.c}
+\lstinputlisting{\codepath/04_AnswerS2.c}
 \subsubsection{解説}
 奇数の段とは、縦の数字を表すiが2で割り切れない段である。
 つまり、iが2で割り切れる段をcontinueにより飛ばすことで、奇数の段のみ出力することが出来る。

@@ -1,6 +1,31 @@
 \section{制御文}
 \subsection{break文}
+break文はループ処理から強制的に脱出する文です．\\
+また前回行ったswitch文でも使います．\\
+下のプログラムを実行してみましょう．\\
+\lstinputlisting{\codepath/break.c}
+\begin{itembox}[l]{実行結果}
+\begin{verbatim}
+こんにちは 1
+こんにちは 2
+こんにちは 3
+こんにちは 4
+こんにちは 5
+\end{verbatim}
+\end{itembox}
 
+このように条件を書くことができますが，if文でbreakをすることはループ文の条件をみづらくするので推奨されません．\\
+なので今のプログラムなら\\
+\lstinputlisting{\codepath/nobreak.c}
+このように書くべきですね．\\
 \subsection{continue文}
-
+現在のループ処理を中断して次のループ処理に移動するcontinue文というものもあります．\\
+以下のプログラムを実行してみてください．\\
+\lstinputlisting{\codepath/continue.c}
+これも先ほどのbreak文と同様にループ文の条件をみづらくするので推奨されません．気をつけましょう．\\
 \subsection{ネスト構造}
+if文などと同様にfor文やwhile文も入れ子構造にすることができます．\\
+以下のプログラムを実行してみましょう．\\
+\lstinputlisting{\codepath/Wfor.c}
+この方法を使うと様々なループをかけますがあまり入れ子構造にしすぎると可読性(読みやすさ)が下がりますので気をつけましょう．\\
+
