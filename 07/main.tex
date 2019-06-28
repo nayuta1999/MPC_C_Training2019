@@ -1,4 +1,4 @@
-%------------------------------------- ページサイズなどの書式設定
+﻿%------------------------------------- ページサイズなどの書式設定
 %¥documentclass[a4j,twocolumn, dvipdfmx]{jsarticle} % 二段組の構成にする
 %¥documentclass[a4j,notitlepage]{jsarticle} % タイトルだけのページを作らない
 \documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
@@ -31,10 +31,11 @@ morecomment=[l]{//}%
 } 
 \title{C言語講座第七回・ポインタ}
 \author{MPC部員}
-\date{2019年6月20日}
+\date{2019年7月4日}
 \begin{document}
 \maketitle
+\include{\articlepath/hukusyu}%復習
 \include{\articlepath/variable}%変数の再確認
-\include{\artilclepath/point}%変数とポインタ
-\include{\articlepatj/arraypointa}%配列とポインタの関係
+\include{\articlepath/point}%変数とポインタ
+\include{\articlepath/arraypointa}%配列とポインタの関係
 \end{document}
