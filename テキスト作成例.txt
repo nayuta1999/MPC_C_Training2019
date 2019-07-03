@@ -15,6 +15,7 @@
 \usepackage{\stypath/listings}
 \usepackage{ascmac}
 \usepackage{\stypath/jlisting}
+\usepackage[dvipdfmx]{hyperref}%ハイパリンク
 \lstset{% 
 showstringspaces=false,%空白文字削除
 language={C},% %言語選択
