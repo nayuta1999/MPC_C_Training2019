@@ -7,11 +7,12 @@
 \newcommand{\codepath}{./code}
 \newcommand{\articlepath}{./article}
 \usepackage[ipaex]{pxchfon}
+\pagenumbering{Roman}
 %\usepackage{itembkbx}
 \usepackage{\stypath/listings}
 \usepackage{ascmac}
 \usepackage{\stypath/jlisting}
-\usepackage[dvipdfmx]{hyperref}%ハイパリンク
+\usepackage[dvipdfmx]{hyperref}
 \lstset{% 
 showstringspaces=false,%空白文字削除
 language={C},% %言語選択
@@ -39,6 +40,9 @@ morecomment=[l]{//}%
 \include{\articlepath/variable}%変数の再確認
 \include{\articlepath/point}%変数とポインタ
 \include{\articlepath/arraypointa}%配列とポインタの関係
+\include{\articlepath/papy_exercise}
+\include{\articlepath/sakaki_exercise}
+
 \section*{参考文献}
 \noindent
 [1]昨年までの講座資料\newline
