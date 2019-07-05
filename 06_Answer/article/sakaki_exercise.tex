@@ -27,7 +27,7 @@ double型の引数a,bを受け取り、その和を返り値とする。つま�
 \section{演習問題}
 \subsection{問4}
 \subsubsection{問題}
-\lstinputlisting{\codepath/sakaki/asnwer4.c}
+\lstinputlisting{\codepath/sakaki/answer4.c}
 \subsubsection{解説}
 
 int型の引数x,yを受け取り、その積を返り値とする。つまりreturn x*y;が書かれた関数を作成すればよい。
@@ -44,7 +44,8 @@ a<bならばb,それ以外ならばaを返り値とすればよい。
 \section{演習問題}
 \subsection{問6}
 \subsubsection{問題}
-\lstinputlisting{\codepath/sakaki/answer6.c}
+\lstinputlisting{\codepath/sakaki/answer6-1.c}
+\lstinputlisting{\codepath/sakaki/answer6-2.c}
 \subsubsection{解説}
 
 まず、main関数内で宣言されたint型のa,bは、ローカル変数なので、main関数内でしか使えない。
@@ -63,7 +64,8 @@ int型の引数nを受け取り、for文でn回だけprintf()すればよい。
 \section{演習問題}
 \subsection{問8}
 \subsubsection{問題}
-\lstinputlisting{\codepath/sakaki/answer8.c}
+\lstinputlisting{\codepath/sakaki/answer8-1.c}
+\lstinputlisting{\codepath/sakaki/answer8-2.c}
 \subsubsection{解説}
 
 8-1はfor文によってnから1までを掛け算している。
@@ -73,7 +75,8 @@ int型の引数nを受け取り、for文でn回だけprintf()すればよい。
 \section{演習問題}
 \subsection{問9}
 \subsubsection{問題}
-\lstinputlisting{\codepath/sakaki/answer9.c}
+\lstinputlisting{\codepath/sakaki/answer9-1.c}
+\lstinputlisting{\codepath/sakaki/answer9-2.c}
 \subsubsection{解説}
 
 9-1はwhile文によって実装している。
@@ -87,15 +90,20 @@ int型の引数nを受け取り、for文でn回だけprintf()すればよい。
 \subsubsection{解説}
 
 各木材に対して、
-1.何もしない
-2.大きさを1増やす
-3.大きさを1減らす
-4.2本を1本にまとめる
+\begin{enumerate}
+\item 何もしない
+\item 大きさを1増やす
+\item 大きさを1減らす
+\item 2本を1本にまとめる
+\end{enumerate}
 という操作が行える。これを木材9本に対して行えばよい。さらによく考えてみると、2本にまとめる全ての組み合わせに対して、最後に+1,-1を必要な回数だけ行えばよいことに気付く。
 よって、
-1.何もしない
-2.Aにl_iを合成
-3.Bにl_iを合成
-4.Cにl_iを合成
+\begin{enumerate}
+\item 何もしない
+\item Aに$l_i$を合成
+\item Bに$l_i$を合成
+\item Cに$l_i$を合成
+
+\end{enumerate}
 の4通りに対して、最後に+1,-1を必要な分行うことで、この問題を解くことが出来る。
 再帰関数を使うと簡単に書くことが出来る。MIN,ABS関数はmath.hをインクルードすることでmin,abs関数として使用できる。
