@@ -7,10 +7,12 @@
 \newcommand{\codepath}{./code}
 \newcommand{\articlepath}{./article}
 \usepackage[ipaex]{pxchfon}
+\pagenumbering{Roman}
 %\usepackage{itembkbx}
 \usepackage{\stypath/listings}
 \usepackage{ascmac}
 \usepackage{\stypath/jlisting}
+\usepackage[dvipdfmx]{hyperref}
 \lstset{% 
 showstringspaces=false,%空白文字削除
 language={C},% %言語選択
@@ -38,4 +40,13 @@ morecomment=[l]{//}%
 \include{\articlepath/variable}%変数の再確認
 \include{\articlepath/point}%変数とポインタ
 \include{\articlepath/arraypointa}%配列とポインタの関係
+\include{\articlepath/papy_exercise}
+\include{\articlepath/sakaki_exercise}
+
+\section*{参考文献}
+\noindent
+[1]昨年までの講座資料\newline
+[2]\href{http://9cguide.appspot.com}{苦しんで覚えるC言語}\newline
+[3]\href{https://yukicoder.me/}{yukicoder}\newline
+[4]\href{http://www.c-tipsref.com/reference/string.html}{C言語関数辞典}
 \end{document}
