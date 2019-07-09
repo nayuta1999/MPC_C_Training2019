@@ -1,4 +1,4 @@
-﻿%------------------------------------- ページサイズなどの書式設定
+%------------------------------------- ページサイズなどの書式設定
 %¥documentclass[a4j,twocolumn, dvipdfmx]{jsarticle} % 二段組の構成にする
 %¥documentclass[a4j,notitlepage]{jsarticle} % タイトルだけのページを作らない
 \documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
@@ -11,7 +11,6 @@
 \usepackage{\stypath/listings}
 \usepackage{ascmac}
 \usepackage{\stypath/jlisting}
-\usepackage[dvipdfmx]{hyperref}%ハイパリンク
 \lstset{% 
 showstringspaces=false,%空白文字削除
 language={C},% %言語選択
@@ -32,16 +31,9 @@ morecomment=[l]{//}%
 } 
 \title{C言語講座第八回・ポインタと文字列}
 \author{MPC部員}
-\date{2019年7月11日}
+\date{2019年6月27日}
 \begin{document}
 \maketitle
-\include{\articlepath/hukusyu}%前回の復習
-\include{\articlepath/double_pointa}%ポインタのポインタ
+\include{\articlepath/doube_pointa}%ポインタのポインタ
 \include{\articlepath/string}%文字列
-\section*{参考文献}
-\noindent
-[1]昨年までの講座資料\newline
-[2]\href{http://9cguide.appspot.com}{苦しんで覚えるC言語}\newline
-[3]\href{https://yukicoder.me/}{yukicoder}\newline
-[4]\href{http://www.c-tipsref.com/reference/string.html}{C言語関数辞典}
 \end{document}
