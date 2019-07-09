@@ -1,14 +1,19 @@
 #include <stdio.h>
 
-void func(int *);
+char charChange(char c);
 
 int main(void){
-  int n;
-  printf("n = "); scanf("%d", &n);
-  func(&n);
-  printf("n = "); printf("%d\n", n);
+  char c;
+  printf("c = "); scanf("%c", &c);
+
+  printf("変換後: %c\n", charChange(c));
 }
 
-void func(int *n){
-  *n *= 10;
+char charChange(char c){
+  if('a' <= c && c <= 'z'){
+    c -= 'a' - 'A';
+  }else if('A' <= c && c <= 'Z'){
+    c += 'a' - 'A';
+  }
+  return c;
 }

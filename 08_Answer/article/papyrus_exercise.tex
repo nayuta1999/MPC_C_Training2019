@@ -4,8 +4,16 @@
 \lstinputlisting{\codepath/papyrus/exercise1.c}
 \subsubsection{解説}
 \begin{verbatim}
-参考文献参照。
+アスタリスクでの表現わかりずらいと思ったそこのあなた。
+そうですよね。こんな書き方しなくていいです。
 
+なぜ引数の配列が先頭アドレスだけしか渡さないはずなのに、
+要素数を書いているの？という質問が聞こえて...くるといいな。
+先頭アドレスだけだと、この配列が一体いくつの要素でひとつの行なのかわからないんですよね。
+だから、一行三列だよーと教える必要があるのです。
+
+引数を変えた、もっとわかりやすい書き方はこちら↓
+https://qiita.com/Hiraku/items/babed27bc1d750c2e12d
 \end{verbatim}
 
 \subsection{問2}
@@ -13,8 +21,8 @@
 \lstinputlisting{\codepath/papyrus/exercise2.c}
 \subsubsection{解説}
 \begin{verbatim}
-配列名だけ(a)は配列の先頭アドレスを表していることを理解しよう。
-参考文献参照。
+文字を数値で引くと、文字コードが引かれる。
+それだけ。
 
 \end{verbatim}
 
@@ -23,9 +31,10 @@
 \lstinputlisting{\codepath/papyrus/exercise3.c}
 \subsubsection{解説}
 \begin{verbatim}
-値渡しと参照渡しの違いを理解しよう。
-引数で渡されたアドレスにあるint型の変数の値そのものが、関数によって書き換えられているのである。
-参考文献参照。
+文字コードの勉強がてらやってもらいましたが、
+ヘッダファイルで用意されています。↓
+http://www.c-tipsref.com/reference/ctype/tolower.html
+http://www.c-tipsref.com/reference/ctype/toupper.html
 \end{verbatim}
 
 \subsection{問4}
@@ -33,10 +42,8 @@
 \lstinputlisting{\codepath/papyrus/exercise4.c}
 \subsubsection{解説}
 \begin{verbatim}
-パッと見た感じでは、配列はどこで書いても元の値が書き換わるように見えるかもしれない。
-しかし、配列の先頭アドレスを参照渡しで渡しているためだということに気づいてほしい。
-理解できない人は参考文献参照の上、配列の要素をint型として関数に渡し、関数内でその値を書き換えてみよう。
-元の値が変わっていないことがわかるはずだ。
+string.hなどの記事をあさってみると面白いと思います。
+http://www.c-tipsref.com/reference/string.html
 \end{verbatim}
 
 \subsection{問5}
@@ -44,7 +51,9 @@
 \lstinputlisting{\codepath/papyrus/exercise5.c}
 \subsubsection{解説}
 \begin{verbatim}
-4ができれば、基礎を理解している人ならそんなに難しくないはずだ(ひな形あるし)。
-C99から変数も配列の要素数として指定できるようになった。
+scanf関数が、ダメダメだという話。
+私がこの記事を書いたのはだいぶ前で、今見ると修正点がちらほら（笑）。
+まあ、Cは文字列の扱い苦手なんですよね...。
+自分なりの入力関数をつくってみてはいかがでしょうか。
 
 \end{verbatim}
