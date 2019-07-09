@@ -1,0 +1,184 @@
+\section{演習問題(さんたろー作)}
+\subsection{最初に}
+\begin{verbatim}
+二重ポインタはわかりづらく、使う機会も少ないはず。
+先に文字列の理解を深めるのが妥当だと思います。
+関数など前回までの基本がわからない場合は
+以前のスライドや演習問題を振り返りましょう。
+
+全体を通しての参考文献(二重ポインタ、文字列)
+https://9cguide.appspot.com/15-07.html
+https://9cguide.appspot.com/14-01.html
+http://www.c-tipsref.com/reference/string.html
+\end{verbatim}
+\subsection{問1(難易度☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+以下のプログラムを実行し、なぜこのような結果になるのか考えなさい。
+また、viewArray関数のコメントを外して実行してみなさい。
+\end{verbatim}
+
+\subsubsection{コード}
+\begin{verbatim}
+#include <stdio.h>
+
+void viewArray(int a[][3], int size);
+
+int main(){
+  int a[2][3] = {{1, 2, 3}, {4, 5, 6}};
+
+  for(int i = 0; i < 2; i++){
+    for(int j = 0; j < 3; j++){
+      printf("a[%d][%d] = %d\n", i, j, *(*(a + i) + j));
+    }
+  }
+  //viewArray(a, sizeof(a) / sizeof(a[0]));
+  return 0;
+}
+
+void viewArray(int a[][3], int size){
+  for(int i = 0; i < size; i++){
+    for(int j = 0; j < 3; j++){
+      printf("a[%d][%d] = %d\n", i, j, *(*(a + i) + j));
+    }
+  }
+}
+\end{verbatim}
+
+\subsection{問2(難易度☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+以下のプログラムを実行し、なぜこのような結果になるのか考えなさい。
+
+ASCIIコード表↓
+http://www3.nit.ac.jp/~tamura/ex2/ascii.html
+\end{verbatim}
+
+\subsubsection{コード}
+\begin{verbatim}
+#include <stdio.h>
+
+int main(){
+  char aLow = 'a', aUp = 'A';
+  printf("%cの文字コードは%dです\n", aLow, aLow);
+  printf("%cの文字コードは%dです\n", aUp, aUp);
+
+  printf("%c + 1 = %c\n", aLow, aLow + 1);
+  printf("%c - 1 = %c\n", aLow, aLow - 1);
+
+  printf("a - A = %d\n", 'a' - 'A');
+  return 0;
+}
+\end{verbatim}
+
+\subsection{問3(難易度☆☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+(この問題は前にも出しましたが、やってる人少ないと思うのでもう一回)
+char型の変数1つを引数としてもち、
+アルファベットの大文字なら小文字に、小文字なら大文字に、
+アルファベット以外の文字ならそのまま返す関数を作成し、挙動を確かめなさい。
+
+返り値: char(変換した文字)
+引数: char(変換する文字)
+\end{verbatim}
+
+\subsubsection{実行例}
+\begin{verbatim}
+c = c
+変換後: C
+
+c = A
+変換後: a
+
+c = !
+変換後: !
+\end{verbatim}
+
+\subsection{問4(難易度☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+以下のプログラムを実行し、なぜこのような結果になるのか考えなさい。
+\end{verbatim}
+
+\subsubsection{コード}
+\begin{verbatim}
+#include <stdio.h>
+#include <string.h>
+#define N 256
+
+int main(){
+  char s1[N] = "Under";
+  char s2[N] = "tale";
+
+  //strlen
+  for(int i = 0; i < (int)strlen(s1); i++){
+    printf("s1[%d] = %c\n", i, s1[i]);
+  }
+
+  //strcmp
+  if(strcmp(s1, s2) > 0){
+    printf("%sのほうが%sより文字コード順で大きい\n", s1, s2);
+  }else if(strcmp(s1, s2) == 0){
+    printf("%sと%sは同じ\n", s1, s2);
+  }else{
+    printf("%sのほうが%sより文字コード順で小さい\n", s1, s2);
+  }
+
+  //strcat
+  strcat(s1, s2);
+  printf("s1 = %s\n", s1);
+
+  //strstr
+  char *t = strstr(s1, "er");
+  if(t != NULL){
+    printf("s1はerを含む\n");
+    printf("t = %s", t);
+  }else{
+    printf("s1はerを含まない\n");
+  }
+
+  return 0;
+}
+\end{verbatim}
+
+\subsection{問5(難易度☆☆)}
+\subsubsection{問題文}
+\begin{verbatim}
+以下のプログラムを実行し、なぜこのような結果になるのか考えなさい。
+数字に限らず、様々な入力をしなさい。
+
+以下の記事参考↓
+https://papyrustaro.hatenablog.jp/entry/2019/01/18/163521
+https://9cguide.appspot.com/06-02.html
+\end{verbatim}
+
+\subsubsection{コード}
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define N 256
+
+void trimEnd(char str[]){
+  int i = 0;
+  while(str[i] != '\n' && i < (int)strlen(str)){
+    i++;
+  }
+  str[i] = '\0';
+}
+
+int main(void){
+  char s[N];
+
+  do{
+    printf("0以上100以下の番号を入力してください: ");
+    fgets(s, N, stdin);
+    trimEnd(s);
+    printf("番号 = %d\n", atoi(s));
+  }while((atoi(s) == 0 && strcmp(s, "0") != 0) || atoi(s) < 0 || atoi(s) > 100);
+  printf("\n入力成功\n");
+
+  return 0;
+}
+\end{verbatim}
