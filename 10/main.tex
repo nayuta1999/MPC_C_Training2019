@@ -2,20 +2,15 @@
 %¥documentclass[a4j,twocolumn, dvipdfmx]{jsarticle} % 二段組の構成にする
 %¥documentclass[a4j,notitlepage]{jsarticle} % タイトルだけのページを作らない
 \documentclass[a4j,titlepage,dvipdfmx]{jsarticle}   % タイトルだけのページを作る
-%-------------------------------------コマンド定義
-%styファイルのパスの簡略化
-\newcommand{\stypath}{./sty}
-%コードファイルの簡略化(./code/04のように毎回変更する)
-\newcommand{\codepath}{./code/}
-%記事ファイルの簡略化(codepathと同様)
-\newcommand{\articlepath}{./article}
 %------------------------------------- パッケージ読み込み
+\newcommand{\stypath}{./sty}
+\newcommand{\codepath}{./code}
+\newcommand{\articlepath}{./article}
 \usepackage[ipaex]{pxchfon}
 %\usepackage{itembkbx}
 \usepackage{\stypath/listings}
 \usepackage{ascmac}
 \usepackage{\stypath/jlisting}
-\usepackage[dvipdfmx]{hyperref}%ハイパリンク
 \lstset{% 
 showstringspaces=false,%空白文字削除
 language={C},% %言語選択
@@ -34,17 +29,11 @@ stepnumber=1,% %行番号をいくつ飛ばしで表示するか
 numbersep=1zw,% %行番号と本文の間隔
 morecomment=[l]{//}% 
 } 
-\title{C言語講座第 回}%何回か書き直す
+\title{C言語講座第九回・構造体}
 \author{MPC部員}
-\date{2019年5月30日}%日付も書き直す
+\date{2019年}
 \begin{document}
 \maketitle
-\include{\articlepath/papy_exercise}%記事を追加する
-\include{\articlepath/sakaki_exercise}
-\section*{参考文献}
-\noindent
-[1]昨年までの講座資料\newline
-[2]\href{http://9cguide.appspot.com}{苦しんで覚えるC言語}\newline
-[3]\href{https://yukicoder.me/}{yukicoder}\newline
-[4]\href{http://www.c-tipsref.com/reference/string.html}{C言語関数辞典}
+\include{\articlepath/structure}%構造体と列挙体
+\include{\articlepath/preprocessor}%プリプロセッサ
 \end{document}
