@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  texlive:
-    image: aruneko/texlive
-    volumes:
-      - "./:/texsrc"
-
-    command: bash -c "platex main.tex && dvipdfmx main.dvi"
