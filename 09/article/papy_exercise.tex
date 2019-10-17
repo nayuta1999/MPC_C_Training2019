@@ -1,1 +1,52 @@
-\section{演習問題(さんたろー作成)}
+\section{演習問題(さんたろー作)}
+\subsection{最初に}
+\begin{verbatim}
+今回出す問題は一風変わったものだけ。
+基礎を忘れてしまった人は前回までのスライドを見て、過去の演習問題を解いてほしい。
+
+またAtcoderのABCのB問題あたりも復習にはちょうどよいだろう
+
+https://kenkoooo.com/atcoder/#/table/
+
+
+\end{verbatim}
+\subsection{問1(難易度☆☆☆)}
+\subsubsection{問題文}
+次のプログラムを実行し、なぜそうなるのか考察しなさい
+\begin{verbatim}
+
+
+#include <stdio.h>
+int main(void){
+  int i = 0;
+  for(printf("A"); printf("B"), i++ < 2; printf("C")){
+    if(i == 1) continue;
+    printf("D");
+  }
+  return 0;
+}
+\end{verbatim}
+
+\subsection{問2(難易度☆☆)}
+\subsubsection{問題文}
+次のプログラムを実行し、なぜそうなるのか考察しなさい
+\begin{verbatim}
+
+
+#include <stdio.h>
+#define MULT(x, y) x * y
+int main(void){
+  double a, b, c, d;
+  a = 3; b = 2; c = 1; d = 4;
+  printf("%.1f", 2 / MULT(a + b, c + d));
+  return 0;
+}
+\end{verbatim}
+
+\subsection{問3(難易度☆☆☆☆☆)}
+\subsubsection{問題文}
+以下の記事を参考にして、
+Newton-Paphson法を用いた平方根の導出を利用し、
+漸化式を用いて円周率を求めるプログラムを書きなさい。\\
+
+http://rabbitfoot141.hatenablog.com/entry/2017/04/28/123137
