@@ -1,1 +1,68 @@
 \section{プリプロセッサ}
+プリプロセッサとはプログラムの処理を行う前の前処理のようなものです。
+\subsection{include}
+includeはヘッダファイルを取り込むときに使います。
+いつも使っているものですね
+\lstinputlisting{\codepath/10-6.c}
+\begin{itembox}{出力結果}
+32.000000
+\end{itembox}
+今回は数学関数のヘッダファイルを取り込みましたが、便利なものがたくさんあります。
+\subsection{define}
+マクロ定義もプリプロセッサです。便利なので多用します
+
+
+\lstinputlisting{\codepath/10-7.c}
+
+\begin{itembox}{出力結果}
+3.140000
+47.100000
+\end{itembox}
+\subsection{if}
+マクロ上でif文と同じものをつくることもできます。
+\lstinputlisting{\codepath/10-8.c}
+\begin{itembox}{出力結果}
+5
+\end{itembox}
+
+\subsection{ifdef・ifndef}
+ifdefを使うとマクロ定義されているかどうかを調べることが出来ます。
+ifndefは逆に定義されていないかを調べることが出来ます。
+\lstinputlisting{\codepath/10-9.c}
+\subsection{定義済みマクロ}
+C言語では最初から定義されているマクロがいくつかあります。
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|c|c|}
+
+\hline
+\_win32 & windowsでコンパイルしたなら1、それ以外なら定義されない\\ \hline
+\_\_linux\_\_ & Linuxでコンパイルしたなら1、それ以外なら定義されない \\ \hline
+\_\_APPLE\_\_ & macOSでコンパイルしたなら1, 以下略 \\ \hline
+\_\_DATE\_\_ &コンパイルされた日付 \\ \hline
+\_\_TIME\_\_ &コンパイルされた日時 \\ \hline
+\_\_FILE\_\_ &ソースコードのファイル名 \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+これ以外にもあるので各自調べてみてください。
+
+\subsection{分割コンパイル}
+分割コンパイルという手法もありますが今回は説明しません。
+京見があれば調べてみたり、C++講習などで説明があるかもしれないので参加してみてください。
+
+\section{おまけ}
+\subsection{ソートアルゴリズム}
+大小関係のあるデータを昇順または降順で並べ替えるアルゴリズムのことです。
+この並べ替える操作はソートといいます。
+以前作成したスワップ関数を覚えていますか？
+それを連続して使うことで配列全体を昇順、降順に並べ替えることができます。
+それがソートアルゴリズムのひとつであるバブルソートです。以下のプログラムが実際のものです。
+\lstinputlisting{\codepath/10-10.c}
+ソートアルゴリズムはこのほかにもあり、情報系なら授業で習うことになります。
+時間があったらソートの動画でもみましょうか。

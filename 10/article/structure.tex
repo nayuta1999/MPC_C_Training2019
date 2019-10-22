@@ -1,3 +1,38 @@
-\section{構造体}
+﻿\section{構造体}
+構造体を用いることによって、複数の異なる型をまとめて用いることが出来ます。
+この構造体はゲームのキャラクターのデータをつくるときなどに使われます。
+まず以下の例を見てみてましょう。
+
+\lstinputlisting{\codepath/10-1.c}
+\begin{itembox}{出力結果}
+HP:50 AP:30 MP:30
+\end{itembox}
+構造体の型を宣言するためにはstructというものをつけます。そのあとに変数のルールと同様に構造体の
+型名を付けます。型名が構造体タグと呼ばれるものです。構造体タグも main 関数の前に書くというのが普通
+です。
+上の例では struct\_player と構造体タグを指定していましたがtypedefというものを使うことによって新し
+い型を自分で宣言するということが出来るようになります。
+
+\lstinputlisting{\codepath/10-2.c}
+
+構造体のポインタを使うときには\*ではなく- \textgreater を使います。
+
+\lstinputlisting{\codepath/10-3.c}
+
+構造体メンバにchar型のnameのような名前のメンバを追加することでplayer名も敢為することが出来るようになったりします。
 
 \section{列挙体}
+列挙体を使うと、値に特別な意味を持たせることが出来ます。
+列挙体を使うにはenumを使います。
+
+
+\lstinputlisting{\codepath/10-4.c}
+\begin{itembox}{出力結果}
+0 1 2 3 4 5 6
+\end{itembox}
+また以下のような使いかたもします。
+
+\lstinputlisting{\codepath/10-5.c}
+中身は自分でいじってみたりして色々試してみましょう。
+
+
