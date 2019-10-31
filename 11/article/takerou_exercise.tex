@@ -1,0 +1,72 @@
+\section{演習問題(細川作成)}
+	
+	その場のノリで作りました。
+	
+	\subsection{Twice}
+		高橋君はinput.txt、output.txtの2つのファイルを持っています。
+		高橋君はinput.txtに書かれている数字を2倍してoutput.txtに書き込みたいです。
+		しかし、高橋君は今ハロウィンの仮装につきっきりなので、手が回せません。
+		高橋君の助けとなるプログラムを書いてください。
+		（なお、与えられる入力は$10^4$程度のもので構いません。）
+
+	\subsubsection{Basic : Twice}
+		ある数字$N$が標準入力（キーボード）より与えられます。その値を二倍したものを出力してください。
+		
+		\begin{itembox}{sample input}
+			2
+		\end{itembox}
+		
+		\begin{itembox}{sample output}
+			4
+		\end{itembox}
+
+	\subsubsection{Advanced : FileTwice}
+		ある数字$N$が1行だけ書かれているinput.txtを作成し、
+		その数字を読み取り、output.txtに書き込むプログラムを作成しなさい。
+		
+		\begin{itembox}{sample input}
+			2
+		\end{itembox}
+		
+		\begin{itembox}{sample output}
+			4
+		\end{itembox}
+		
+	\subsubsection{Expert : FileTwice-ex}
+		ある数字$N$が複数行だけ書かれているinput.txtを作成し、
+		その数字を読み取り、output.txtに書き込むプログラムを作成しなさい。
+		
+		\begin{itembox}{sample input ex}
+			\begin{verbatim}
+			2
+			3
+			4
+			5
+			6
+			\end{verbatim}
+		\end{itembox}
+		
+		\begin{itembox}{sample output ex}
+			\begin{verbatim}
+			4
+			6
+			8
+			10
+			12
+			\end{verbatim}
+		\end{itembox}
+	
+	\subsection{Appendix : pipeline}
+		ファイル操作だけでなく、ある出力を自分、又は他のプログラムに渡すことが出来る
+		パイプライン処理というものがあるということだけ教えておきます。
+		
+		Twiceの問題で作ったプログラムをTwice.cとします。
+		以下のコードを「端末（terminal）上で」実行してみてください。
+		
+		\begin{itembox}{sample}
+			\begin{verbatim}
+			2 > input.txt; cat .\input.txt | .\twice.exe > .\output.txt; cat .\output.txt
+			\end{verbatim}
+		\end{itembox}
+		
+		
