@@ -1,0 +1,27 @@
+\section{細川作演習問題の解答}
+
+\subsection{Twice}
+	\subsubsection{Twice}
+		問題文的にはファイル操作とは関係ありません。
+		ただ標準入力からint型の整数入力を受け取り、それを2倍した値を表示するだけの簡単な問題です。
+		\textbf{この後のパイプライン処理で使うので、別のファイルとして保存しておいてください。}
+		
+		\lstinputlisting{\codepath/takerou/twice/twice.c}
+		\newpage
+		
+	\subsubsection{fTwice}
+		今回の講義に対応した問題になります。解答コードのコードは複数行に対応したコードですが、
+		もちろん1行の読み込みも可能です。
+		
+		解答の解説をします。while文のループ条件において、fgets関数の返値がNULLであるかないかを判定します。
+		この時、fgets関数を呼んでいるため、ファイルから文字列を受け取り済みであることに注意してください。
+		また、for文のループを止める条件（for(i = 0; fgets(...); i++) みたいな）でfgets関数を呼び、
+		for文の中でさらにfgets関数を呼んでしまうと、偶数行のみを二倍してしまうことになります。
+		while文でも同様です。
+
+		\lstinputlisting{\codepath/takerou/fTwice/fTwice.c}
+
+\subsection{Appendix : pipeline}
+	Twiceで作成したコードを用いて、パイプライン処理をやってもらうものです。
+	linux等もそうですが、OSにはコマンドというものがあります。これを機に、コマンドを学んでみるのも手かと思います。
+	なんか便利にしたいなと思ったとき、調べたり聞いたりしながらやってみましょう。
