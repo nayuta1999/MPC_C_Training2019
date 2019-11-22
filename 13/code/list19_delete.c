@@ -66,17 +66,16 @@ void delete_servant(SERVANT **now){
     //削除するデータが存在するか確認する
     if((*now)->next==NULL){
         printf("削除するデータはありません\n");
+        return 0;
     }
     
     tmp2=(*now)->next;
     
     //ネクネクがなければ next を消すだけで ok
     if(tmp2->next==NULL){
-        free((*now)->next);
         (*now)->next=NULL;
     }else{
         //ネクネクがあれば繋ぎなおした後にnextを消す
-        (*now)->next=tmp2->next;
-        free(tmp2);
+        (*now)->next=tmp2->next;       
     }
 }
